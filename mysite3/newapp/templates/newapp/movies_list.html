@@ -3,3 +3,15 @@
   <br />
   {{ movie_item.rating }}
 {% endfor %}
+<br />
+{% if movies_object.has_previous %}
+  <a href="?page=1">First</a>
+  <a href="?page={{ movies_object.previous_page_number }}">Previous</a>
+{% endif %}
+
+<span class="current">Page: {{ movies_object.number }} of {{ movies_object.paginator.num_pages }}.</span>
+
+{% if movies_object.has_next %}
+  <a href="?page={{ movies_object.next_page_number }}">Next</a>
+  <a href="?page={{ movies_object.paginator.num_pages }}">Last</a>
+{% endif %}
